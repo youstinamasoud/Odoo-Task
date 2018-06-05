@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <record id="machine_action" model="ir.actions.act_window">
+            <field name="name">Machines</field>
+            <field name="res_model">iti.machines</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+            <menuitem id="iti_root" name="ITI"/>
+            <menuitem id="iti_data" name="Data" parent="iti_root"/>
+            <menuitem id="iti_machines" name="Machine" parent="iti_data" action="machine_action"/>
+
+        <record id="company_machine_formview" model="ir.ui.view">
+               <field name="model">iti.machines</field>
+                        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                      <field name="image" widget='image' class="oe_avatar"/>
+                        <div class="oe_title">
+                             <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Employee's Name" required="True"/>
+                            </h1>
+                        </div>
+                        <field name="category_ids" widget="many2many_tags"/>
+              <group>
+
+                  <field name="name"/>
+                  <field name="description"/>
+                  <field name="price"/>
+                  <field name="is_approved"/>
+                  <field name="create_date"/>
+                  <field name="create_uid"/>
+            </group>
+
+                        <field name="history_id">
+                            <tree editable="True">
+                                <field name="date"/>
+                                <field name="desc"/>
+                                <field name="user_id" />
+
+                            </tree>
+                        </field>
+
+                    </sheet>
+                </form>
+            </field>
+  </record>
+
+
+    </data>
+</odoo>

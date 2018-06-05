@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="department_action" model="ir.actions.act_window">
+            <field name="name">Departments</field>
+            <field name="res_model">iti.departments</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+            <menuitem id="iti_departments" name="Department" parent="iti_data" action="department_action"/>
+
+    </data>
+</odoo>

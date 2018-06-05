@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+
+
+        <record id="modules_visit_tree" model="ir.ui.view">
+            <field name="name">Models Visit tree view</field>
+            <field name="model">modules.visit</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Date"/>
+                    <field name="Datetime"/>
+                    <field name="patiant_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record  id="modules_visit_action" model="ir.actions.act_window">
+            <field name="name">visitation</field>
+            <field name="res_model">modules.visit</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="visit" name="visitation"  parent="subroot" action="modules_visit_action"/>
+
+
+    </data>
+</odoo>

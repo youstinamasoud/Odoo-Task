@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+
+        <!--<search string="Search Patian">-->
+            <!--<field name="name"/>-->
+        <!--</search>-->
+
+
+        <record id="modules_patiant_tree" model="ir.ui.view">
+            <field name="name">Models Patiant tree view</field>
+            <field name="model">modules.patiant</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="mobile"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="modules_patiant_form" model="ir.ui.view">
+            <field name="name">Models Patiant form view</field>
+            <field name="model">modules.patiant</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                       <group>
+                          <field name="name" string="Patiant Name" required="True"/>
+                       </group>
+                       <group>
+                          <field name="mobile" string="Phone Of Patiant" required="True"/>
+                       </group>
+                        <group>
+                            <field name="visit_ids">
+                                <tree editable="bottom">
+                                    <field name="Date"/>
+                                    <field name="Datetime"/>
+                                </tree>
+                            </field>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record  id="modules_patiant_action" model="ir.actions.act_window">
+            <field name="name">Patiant</field>
+            <field name="res_model">modules.patiant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="root" name="office"/>
+        <menuitem id="subroot" name="Menus" parent="root"/>
+        <menuitem id="patiant" name="Patiant"  parent="subroot" action="modules_patiant_action"/>
+
+
+    </data>
+</odoo>
